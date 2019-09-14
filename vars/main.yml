@@ -1,4 +1,4 @@
 ---
 # vars file for ansible_create_user
-newuser_username: "110marc"
-newuser_password: "110marc123"
+username110: "110marc"
+password110: "110marc123"

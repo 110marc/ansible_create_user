@@ -1,18 +1,18 @@
 ---
 # tasks file for ansible_create_user
-- name: create user {{ newuser_username }} and password {{ newuser_password }}
+- name: create user {{ username110 }} and password {{ password110 }}
   user:
-    name: "{{ newuser_username }}"
+    name: "{{ username110 }}"
     shell: /bin/bash
-    password: "{{ newuser_password | password_hash('sha512') }}"
+    password: "{{ password110 | password_hash('sha512') }}"
     state: present
   register: user_added
 
-- name: grant all privileges to user {{ newuser_username }} on sudoers
+- name: grant all privileges to user {{ username110 }} on sudoers
   copy:
     dest: /etc/sudoers.d/00_technical_user
-    content: "{{ newuser_username }} ALL=(ALL)   NOPASSWD: ALL"
+    content: "{{ username110 }} ALL=(ALL)   NOPASSWD: ALL"
 
-- name: "{{ newuser_username }} must change password on next login"
-  shell: chage -d 0 "{{ newuser_username }}"
+- name: "{{ username110 }} must change password on next login"
+  shell: chage -d 0 "{{ username110 }}"
   when: user_added.changed
