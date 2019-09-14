@@ -5,6 +5,7 @@
     name: "{{ newuser_username }}"
     shell: /bin/bash
     password: "{{ newuser_password | password_hash('sha512') }}"
+    state: present
   register: user_added
 
 - name: grant all privileges to user {{ newuser_username }} on sudoers
