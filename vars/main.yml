@@ -1,0 +1,4 @@
+---
+# vars file for ansible_create_user
+newuser_username: "ibmadmin"
+newuser_password: "ibmadmin123"
